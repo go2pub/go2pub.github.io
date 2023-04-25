@@ -68,69 +68,73 @@
       .card-panel .row .col .card.purple {
         background-color: #9c27b0;
       }
+      html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    position: relative;
+}
+.video {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background: url(//img.youtube.com/vi/hvt5xjZTN1U/maxresdefault.jpg) center center no-repeat;
+    background-size: cover;
+}
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    /* adjust the 8px below for more or less blur. eg, 100px will give you massive blur, while 1px barely blurs at all */
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blur h1 {
+    align-self: center;
+    color: #fff;
+    text-align: center;
+    font-size: 160px;
+    font-family: 'Poppins', sans-serif;
+    line-height: .85;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(15,15,15,.5);
+}
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="card-panel">
-        <h4 class="card-title">Material Design Dashboard</h4>
-        <div class="icon-block">
-          <i class="material-icons">dashboard</i>
-        </div>
-        <div class="row">
-          <div class="col s12 m6 l4">
-            <div class="card red">
-              <div>
-                <h5>Total Sales</h5>
-                <p>$50,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card blue">
-              <div>
-                <h5>Orders Placed</h5>
-                <p>200</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card green">
-              <div>
-                <h5
-Total Customers</h5>
-                <p>500</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card orange">
-              <div>
-                <h5>Products</h5>
-                <p>50</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card grey">
-              <div>
-                <h5>Revenue</h5>
-                <p>$10,000</p>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 m6 l4">
-            <div class="card purple">
-              <div>
-                <h5>Users</h5>
-                <p>100</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- 
+This is more a proof of concept than 
+something you should actually use. 
+It's --VERY-- resource intensive 
+because the css backdrop-filter is not 
+very optmised. Fun to look at though! 
+//-->
+
+<div class="container">
+    <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/hvt5xjZTN1U?controls=0&amp;rel=0&amp;autoplay=1&amp;mute=1&amp;loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay></iframe>
+    </div>
+    <div class="blur">
+        <h1>I will be<br>right back</h1>
+    </div>
+</div>
     </div>
     <!-- Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+      reframe('iframe');
+    </script>
   </body>
 </html>
